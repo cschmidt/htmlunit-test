@@ -1,0 +1,22 @@
+<html>
+<head>
+<!--
+If you open this in a browser and view the document tree, you should see that
+the script has been inserted into the body, and the script element in the head
+is preserved.  Opening this in HtmlUnit results in the script element being
+removed from the head, and the text 'hope I am not in the body!' in the body.
+ -->
+<script>
+function render() {
+  var aDiv = document.createElement('div');
+  aDiv.innerHTML = "<script>document.write('hope I am not in the body!');<\/script>";
+  document.getElementsByTagName('body')[0].appendChild(aDiv);
+}
+
+window.onload = render;
+</script>
+</head>
+<body>
+<div>all good</div>
+</body>
+</html>
